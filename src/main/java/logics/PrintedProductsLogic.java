@@ -57,7 +57,8 @@ public class PrintedProductsLogic {
         int id = scanner.nextInt();
 
         System.out.println("Введите название печатной продукции: ");
-        String title = scanner.next();
+        scanner.nextLine();
+        String title = scanner.nextLine();
         System.out.println("Введите имя автора: ");
         String firstName = scanner.next();
         System.out.println("Введите фамилию автора: ");

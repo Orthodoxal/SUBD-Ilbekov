@@ -46,9 +46,9 @@ public class Registry {
 
     @Override
     public String toString() {
-        return "\n\n\n\nID: " + id + "\nДата выдачи: " + issueDate + "\nВозващено: " + (returned ? "Да" : "Нет")
+        return "\n\n---------\nID: " + id + "\nДата выдачи: " + issueDate + "\nВозващено: " + (returned ? "Да" : "Нет")
                 + "\nБилет читателя: " + ticket.toString()
                 + "\nБиблиотекарь: " + librarian.toString()
-                + "\nКнига: " + printedProducts.toString() + "\n\n\n\n";
+                + "\nКнига: " + printedProducts.toString() + "\n---------\n\n";
     }
 }

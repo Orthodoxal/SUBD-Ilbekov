@@ -5,7 +5,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SessionFactory sessionFactory = new Configuration()
                 .addAnnotatedClass(Ticket.class)
                 .addAnnotatedClass(Reader.class)
@@ -15,9 +15,12 @@ public class Main {
                 .addAnnotatedClass(Registry.class)
                 .buildSessionFactory();
 
-        boolean isWork = true;
+        /*TestPerformance testPerformance = new TestPerformance();
+        testPerformance.startTest(sessionFactory);*/
+
+        boolean isFinish = false;
         Scanner scanner = new Scanner(System.in);
-        while (isWork) {
+        while (!isFinish) {
             System.out.println("Выберите сущность: ");
             System.out.println("1 — Билет читателя");
             System.out.println("2 — Читатель");
@@ -51,10 +54,10 @@ public class Main {
                     RegistryLogic registryLogic = new RegistryLogic();
                     registryLogic.start(sessionFactory);
                 }
-                case 7 -> isWork = false;
+                case 7 -> isFinish = true;
             }
         }
-        //sessionFactory.close();
+        sessionFactory.close();
     }
 }
 
